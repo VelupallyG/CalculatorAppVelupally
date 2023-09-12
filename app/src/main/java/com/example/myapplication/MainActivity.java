@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     String currentNum;
     String view;
     ArrayList<String> numArr = new ArrayList<String>();
-    ArrayList<String> OperationsArr = new ArrayList<String>();
+    ArrayList<String> operationsArr = new ArrayList<String>();
     TextView result_tv;
 
     @Override
@@ -76,40 +76,46 @@ public class MainActivity extends AppCompatActivity {
             numArr.add(currentNum);
             currentNum = "";
             view = view + " + ";
-            OperationsArr.add("+");
+            operationsArr.add("+");
         }
         else if (v.getId() == R.id.buttonSubtract){
             numArr.add(currentNum);
             currentNum = "";
             view = view + " - ";
-            OperationsArr.add("-");
+            operationsArr.add("-");
         }
         else if (v.getId() == R.id.buttonMultiply){
             numArr.add(currentNum);
             currentNum = "";
             view = view + " * ";
-            OperationsArr.add("*");
+            operationsArr.add("*");
         }
         else if (v.getId() == R.id.buttonDivide){
             numArr.add(currentNum);
             currentNum = "";
             view = view + " / ";
-            OperationsArr.add("/");
+            operationsArr.add("/");
         }
         //Clear and decimal buttons: later
         else if (v.getId() == R.id.buttonEnter){
             numArr.add(currentNum);
             view = calculate();
         }
+        else if (v.getId() == R.id.buttonClear){
+            currentNum = "";
+            view = "";
+            numArr = new ArrayList<String>();
+            operationsArr = new ArrayList<String>();
+        }
         result_tv.setText(view);
     }
 
     public String calculate(){
         //numArr.size() == OperationsArr.size() + 1
-        if (numArr.isEmpty() == false) {
+        if (numArr.contains("") == false) {
             double answer = Double.parseDouble(numArr.get(0));
-            for (int i = 0; i < OperationsArr.size(); i++) {
-                String operation = OperationsArr.get(i);
+            for (int i = 0; i < operationsArr.size(); i++) {
+                String operation = operationsArr.get(i);
                 if (operation.equals("+")) {
                     answer += Double.parseDouble(numArr.get(i + 1));
                 }
@@ -120,12 +126,15 @@ public class MainActivity extends AppCompatActivity {
                     answer *= Double.parseDouble(numArr.get(i + 1));
                 }
                 if (operation.equals("/")) {
+                    if (Double.parseDouble(numArr.get(i + 1)) == 0){
+                        return "ERR";
+                    }
                     answer /= Double.parseDouble(numArr.get(i + 1));
                 }
             }
             return String.valueOf(answer);
         }else{
-            return "Err";
+            return "ERR";
         }
     }
 }

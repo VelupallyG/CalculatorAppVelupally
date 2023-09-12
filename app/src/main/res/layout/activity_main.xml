@@ -7,37 +7,26 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonPeriod"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="@dimen/buttonHeight"
-        android:layout_marginStart="@dimen/buttonConstraint"
-        android:layout_marginBottom="@dimen/buttonConstraint"
-        android:text="."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button0"
-        android:onClick="takeInput"/>
-
-    <Button
         android:id="@+id/buttonClear"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
+        android:layout_marginStart="@dimen/buttonConstraint"
         android:layout_marginTop="@dimen/buttonConstraint"
-        android:layout_marginEnd="11dp"
+        android:onClick="takeInput"
         android:text="C"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDivide"
-        android:onClick="takeInput"/>
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDivide" />
 
     <Button
         android:id="@+id/buttonDivide"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_marginEnd="11dp"
+        android:layout_marginStart="@dimen/buttonConstraint"
         android:layout_marginBottom="@dimen/buttonConstraint"
+        android:onClick="takeInput"
         android:text="/"
         app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="takeInput"/>
+        app:layout_constraintStart_toEndOf="@+id/buttonMultiply" />
 
     <Button
         android:id="@+id/buttonMultiply"
@@ -164,23 +153,23 @@
         android:id="@+id/buttonEnter"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="190dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginStart="@dimen/buttonConstraint"
         android:layout_marginBottom="@dimen/buttonConstraint"
+        android:onClick="takeInput"
         android:text="="
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="takeInput"/>
+        app:layout_constraintStart_toEndOf="@+id/button9" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_marginStart="@dimen/buttonConstraint"
-        android:layout_marginBottom="@dimen/buttonConstraint"
+        android:layout_marginBottom="110dp"
+        android:onClick="takeInput"
         android:text="9"
-        app:layout_constraintBottom_toTopOf="@+id/buttonPeriod"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        android:onClick="takeInput"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button8" />
 
     <Button
         android:id="@+id/button0"
@@ -195,15 +184,15 @@
 
     <TextView
         android:id="@+id/result_tv"
-        android:layout_width="351dp"
-        android:layout_height="103dp"
+        android:layout_width="355dp"
+        android:layout_height="89dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:onClick="takeInput"
         android:text="0"
-        android:textSize="64dp"
         android:textAlignment="textEnd"
+        android:textSize="64dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="takeInput"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
